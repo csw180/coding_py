@@ -5,6 +5,8 @@ import pprint
 import sys
 
 def dfs(start, matrix, visited) :
+    pr = [0,0,1,-1]
+    pc = [1,-1,0,0]
     r,c  = start
     q = []
     q.append(start)
@@ -15,14 +17,9 @@ def dfs(start, matrix, visited) :
             continue
         visited[r][c] = 1
         cnt += 1
-        if matrix[r][c+1] == ch :
-            q.append((r,c+1))
-        if matrix[r][c-1] == ch :
-            q.append((r,c-1))        
-        if matrix[r+1][c] == ch :
-            q.append((r+1,c))    
-        if matrix[r-1][c] == ch :
-            q.append((r-1,c))         
+        for k in range(4) :
+            if matrix[r+pr[k]][c+pc[k]] == ch :
+                q.append((r+pr[k],c+pc[k]))    
     return (ch,cnt)
 
 n,m = map(int,sys.stdin.readline().split(' '))
@@ -33,10 +30,6 @@ for i in range(1,n+1) :
     for j,v in enumerate(inlist,1) :
         matrix[i][j] = v
 
-# print('---------------------')
-# pprint.pprint(matrix)
-# pprint.pprint(visited)                
-# print('---------------------')
 
 score_w = 0
 score_b = 0
