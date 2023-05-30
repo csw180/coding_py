@@ -1,5 +1,7 @@
 # 백준 효율적인해킹(1325) https://www.acmicpc.net/problem/1325
-# 시간초과
+# python3 으로 제출하면 시간초과 pypy3로 제출하면 통과
+# list 가 메모리를 많이 먹을것 같아서 dict 로 바꿔보았으나(1325_1.py)
+# 시간초과 걸림.
 
 import sys
 from collections import deque
