@@ -10,6 +10,9 @@ class dfs_helper() :
         self._visited = [0] * len(s)
         self._answer_result = set()
     
+    def init_visited(self) :
+        self._visited = [0] * len(self._s)
+
     def add_result(self, result) :
         if  len(result) == len(self._s) :
             self._answer_result.add(result)
@@ -47,6 +50,7 @@ s = input().rstrip()
 
 helper = dfs_helper(s)
 for i in range(len(s)):
+    helper.init_visited()
     dfs(i,'' ,s,helper)
 
 print(helper.get_answer())
